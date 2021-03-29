@@ -6,7 +6,7 @@ const shows = ['The Last Blockbuster',
     'Hell on Wheels',
     'The Crown',
     'Black Mirror',
-    'Peaky Blinder',
+    'Peaky Blinders',
     'Cobra Kai',
     'Stranger Things'
 ];
@@ -22,33 +22,75 @@ const actors = ['Bill Hader',
 ];
 
 //constructor for all the objects
-function Person(name, show, img) {
+function Actor(name, show, path) {
     this.name = name;
     this.show = show;
-    this.img = img;
-    Person.all.push(this);
+    this.path = path;
+    Actor.all.push(this);
 }
 
 // holds all instances of the Person object
-Person.all = [];
+Actor.all = [];
 
-new Person('Cillian Murphy', 'Peaky Blinders', 'imgs/CM Peaky Blinders.jpg');
-new Person('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgertonjpeg');
-new Person('Taylor Schilling', 'Orange is the New Black', 'imgs/OITNB Taylor Schilling.jpg');
-new Person('Henry Cavill', 'The Witcher', 'imgs/Witcher.jpg');
-new Person('Joe Exotic', 'Tiger King', 'imgs/Tiger King.jpeg');
-new Person('Anya Taylor-Joy', "Queen's Gambit", 'imgs/Queens Gambit.jpg');
-new Person('Millie Bobby Brown', 'Stranger Things', 'imgs/MBB StrangerThings.jpg');
-new Person('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levyschitts-creek.jpg');
-new Person('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
-new Person('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
+new Actor('Cillian Murphy', 'Peaky Blinders', 'imgs/CM Peaky Blinders.jpg');
+new Actor('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgertonjpeg');
+new Actor('Taylor Schilling', 'Orange is the New Black', 'imgs/OITNB Taylor Schilling.jpg');
+new Actor('Henry Cavill', 'The Witcher', 'imgs/Witcher.jpg');
+new Actor('Joe Exotic', 'Tiger King', 'imgs/Tiger King.jpeg');
+new Actor('Anya Taylor-Joy', "Queen's Gambit", 'imgs/Queens Gambit.jpg');
+new Actor('Millie Bobby Brown', 'Stranger Things', 'imgs/MBB StrangerThings.jpg');
+new Actor('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levyschitts-creek.jpg');
+new Actor('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
+new Actor('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
 
 // TODO: add images to the screen
 function renderImages() {
-    console.log(Person.all[0].img);
-    imgElem.src = Person.all[0].img;
-    // const imgElem.src = Person.img;
-    // const imgElem.textContent = `This is actor in show`
+    imgElem.src = Actor.all[0].path;
+}
+
+Actor.prototype.getAnswer = function() {
+    const actorNamesElem = document.getElementById('actorNames');
+    const showNamesElem = document.getElementById('showNames');
+    let temp = [];
+    let optionElem;
+
+    shuffle(actors);
+
+    for(let i = 0; i < 3; i++) {
+        temp.push(actors[i]);
+    }
+
+    temp.push(this.name);
+
+    shuffle(temp);
+
+    for(let answers of temp) {
+        optionElem = document.createElement('option');
+        optionElem.value = answers;
+        optionElem.textContent = answers;
+        actorNamesElem.appendChild(optionElem);
+    }
+
+    temp = [];
+
+    shuffle(shows);
+
+    for (let j = 0; j < 3; j++) {
+        temp.push(shows[j]);
+    }
+
+    temp.push(this.show);
+
+    shuffle(temp);
+
+    for(let answers of temp) {
+        optionElem = document.createElement('option');
+        optionElem.value = answers;
+        optionElem.textContent = answers;
+        showNamesElem.appendChild(optionElem);
+    }
+
+    //for loop to get wrong answers
 }
 
 // TODO: hit submit and move to the next question
@@ -76,4 +118,5 @@ function shuffle(array) {
     }
 }
 
+Actor.all[0].getAnswer();
 renderImages();
