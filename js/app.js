@@ -1,5 +1,7 @@
 'use strict'
 const imgElem = document.getElementById('actor-img');
+const finalResultsElem = document.getElementById('finalScore');
+
 let score = 0;
 let counter = 0;
 
@@ -49,7 +51,7 @@ function renderImages() {
     imgElem.src = Actor.all[0].path;
 }
 
-Actor.prototype.getAnswer = function() {
+Actor.prototype.getAnswer = function () {
     const actorNamesElem = document.getElementById('actorNames');
     const showNamesElem = document.getElementById('showNames');
     let temp = [];
@@ -57,7 +59,7 @@ Actor.prototype.getAnswer = function() {
 
     shuffle(actors);
 
-    for(let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         temp.push(actors[i]);
     }
 
@@ -65,7 +67,7 @@ Actor.prototype.getAnswer = function() {
 
     shuffle(temp);
 
-    for(let answers of temp) {
+    for (let answers of temp) {
         optionElem = document.createElement('option');
         optionElem.value = answers;
         optionElem.textContent = answers;
@@ -84,7 +86,7 @@ Actor.prototype.getAnswer = function() {
 
     shuffle(temp);
 
-    for(let answers of temp) {
+    for (let answers of temp) {
         optionElem = document.createElement('option');
         optionElem.value = answers;
         optionElem.textContent = answers;
@@ -94,40 +96,32 @@ Actor.prototype.getAnswer = function() {
     //for loop to get wrong answers
 }
 
-// TODO: hit submit and move to the next question
-function cycleQuestions() {
-
-    for (let i = 0; i < array.length; i++) {
-        renderImages();
-    }
-}
-
 // TODO: add an event listener to submit
 const handleAnswer = function (event) {
     event.preventDefault();
     counter += 1;
     let userAns = event.target.actor.value;
     for (let actor of Actor.all) {
-        if (userAns === actor.name){
+        if (userAns === actor.name) {
             score += 1;
         }
     }
     userAns = event.target.show.value;
     for (let show of Actor.all) {
-        if (userAns === show.show){
+        if (userAns === show.show) {
             score += 1;
         }
     }
-    imgElem.src = Actor.all[counter].path;
-
+    imgElem.src = Actor.all[counter - 1].path;
+    if (counter === 10) {
+        formElem.removeEventListener('submit', handleAnswer);
+        window.location.href = 'scorepage.html'
+    }
 }
 // TODO: create handler for submit
 const formElem = document.getElementById('formElem');
 
 formElem.addEventListener('submit', handleAnswer);
-
-
-
 
 //This will be the shuffle function used to randomize inncorrect answers.
 function shuffle(array) {
@@ -139,5 +133,9 @@ function shuffle(array) {
     }
 }
 
-Actor.all[0].getAnswer();
-renderImages();
+function renderFinal() {
+    Actor.all[0].getAnswer();
+    renderImages();
+}
+
+renderFinal();
