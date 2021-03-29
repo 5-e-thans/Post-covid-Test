@@ -6,10 +6,12 @@ const actors = [];
 const mainElem = document.getElementsByTagName('main');
 
 
+
 function Person (name, show, img) {
     this.name = name;
     this.show = show;
     this.img = img;
+    Person.all.push(this);
 }
 
 const answerKey = Person.all[];
@@ -26,8 +28,17 @@ new Person('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
 new Person('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
 
 
+function renderImages() {
+    const mainElem.src = Person.img;
+    const mainElem.textContent = `This is actor in show`
+}
 
+function cycleQuestions() {
 
+    for (let i = 0; i < array.length; i++) {
+    renderImages();        
+    }
+}
 
 
 
