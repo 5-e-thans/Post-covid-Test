@@ -1,5 +1,7 @@
 'use strict'
-// TODO: fill with answers
+const imgElem = document.getElementById('actor-img');
+
+
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
     'The Crown',
@@ -19,9 +21,6 @@ const actors = ['Bill Hader',
     'Marisa Tomei'
 ];
 
-const mainElem = document.getElementsByTagName('main');
-
-
 //constructor for all the objects
 function Person(name, show, img) {
     this.name = name;
@@ -31,9 +30,9 @@ function Person(name, show, img) {
 }
 
 // holds all instances of the Person object
-const answerKey = Person.all[];
+Person.all = [];
 
-new Person('Cillian Murphy', 'Peaky Blinders', 'img/CM Peaky Blinders.jpg');
+new Person('Cillian Murphy', 'Peaky Blinders', 'imgs/CM Peaky Blinders.jpg');
 new Person('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgertonjpeg');
 new Person('Taylor Schilling', 'Orange is the New Black', 'imgs/OITNB Taylor Schilling.jpg');
 new Person('Henry Cavill', 'The Witcher', 'imgs/Witcher.jpg');
@@ -46,8 +45,10 @@ new Person('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg'
 
 // TODO: add images to the screen
 function renderImages() {
-    const mainElem.src = Person.img;
-    const mainElem.textContent = `This is actor in show`
+    console.log(Person.all[0].img);
+    imgElem.src = Person.all[0].img;
+    // const imgElem.src = Person.img;
+    // const imgElem.textContent = `This is actor in show`
 }
 
 // TODO: hit submit and move to the next question
@@ -74,3 +75,5 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
+
+renderImages();
