@@ -6,8 +6,6 @@ A pairing game to test your celebrity knowledge.
 
 Roman Ayalew, Kyle Hoac, Skyler Johnson, Cullen Sharp, Tim Viccari
 
-
-
 ## Problem Domain
 
 As a user, I want to quiz my knowledge on Netflix shows.
