@@ -1,7 +1,23 @@
 'use strict'
 // TODO: fill with answers
-const shows = [];
-const actors = [];
+const shows = ['The Last Blockbuster',
+    'Hell on Wheels',
+    'The Crown',
+    'Black Mirror',
+    'Peaky Blinder',
+    'Cobra Kai',
+    'Stranger Things'
+];
+
+const actors = ['Bill Hader',
+    'Jack Black',
+    'Catherine O\'Hara',
+    'Abraham Lincoln',
+    'Billy Bob Thorton',
+    'Bruce Willis',
+    'Heath Ledger',
+    'Marisa Tomei'
+];
 
 const mainElem = document.getElementsByTagName('main');
 
