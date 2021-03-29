@@ -1,6 +1,7 @@
 'use strict'
 const imgElem = document.getElementById('actor-img');
-
+let score = 0;
+let counter = 0;
 
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
@@ -33,13 +34,13 @@ function Actor(name, show, path) {
 Actor.all = [];
 
 new Actor('Cillian Murphy', 'Peaky Blinders', 'imgs/CM Peaky Blinders.jpg');
-new Actor('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgertonjpeg');
+new Actor('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgerton.jpg');
 new Actor('Taylor Schilling', 'Orange is the New Black', 'imgs/OITNB Taylor Schilling.jpg');
 new Actor('Henry Cavill', 'The Witcher', 'imgs/Witcher.jpg');
 new Actor('Joe Exotic', 'Tiger King', 'imgs/Tiger King.jpeg');
 new Actor('Anya Taylor-Joy', "Queen's Gambit", 'imgs/Queens Gambit.jpg');
 new Actor('Millie Bobby Brown', 'Stranger Things', 'imgs/MBB StrangerThings.jpg');
-new Actor('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levyschitts-creek.jpg');
+new Actor('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levy-schitts-creek.jpg');
 new Actor('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
 new Actor('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
 
@@ -102,8 +103,28 @@ function cycleQuestions() {
 }
 
 // TODO: add an event listener to submit
+const handleAnswer = function (event) {
+    event.preventDefault();
+    counter += 1;
+    let userAns = event.target.actor.value;
+    for (let actor of Actor.all) {
+        if (userAns === actor.name){
+            score += 1;
+        }
+    }
+    userAns = event.target.show.value;
+    for (let show of Actor.all) {
+        if (userAns === show.show){
+            score += 1;
+        }
+    }
+    imgElem.src = Actor.all[counter].path;
 
+}
 // TODO: create handler for submit
+const formElem = document.getElementById('formElem');
+
+formElem.addEventListener('submit', handleAnswer);
 
 
 
