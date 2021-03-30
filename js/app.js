@@ -3,7 +3,7 @@ const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
 
 let score = 0;
-let counter = 0;
+let counter = 1;
 
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
@@ -93,12 +93,15 @@ Actor.prototype.getAnswer = function () {
         showNamesElem.appendChild(optionElem);
     }
 
-    //for loop to get wrong answers
+console.log(temp);
+
 }
 
 // TODO: add an event listener to submit
 const handleAnswer = function (event) {
     event.preventDefault();
+    event.target.actor.innerHTML = "";
+    event.target.show.innerHTML = "";
     counter += 1;
     let userAns = event.target.actor.value;
     for (let actor of Actor.all) {
@@ -112,12 +115,16 @@ const handleAnswer = function (event) {
             score += 1;
         }
     }
-    imgElem.src = Actor.all[counter - 1].path;
+
+    Actor.all[counter].getAnswer();
+    imgElem.src = Actor.all[counter].path;
+    
     if (counter === 10) {
         formElem.removeEventListener('submit', handleAnswer);
         window.location.href = 'scorepage.html'
     }
 }
+
 // TODO: create handler for submit
 const formElem = document.getElementById('formElem');
 
@@ -133,9 +140,6 @@ function shuffle(array) {
     }
 }
 
-function renderFinal() {
-    Actor.all[0].getAnswer();
-    renderImages();
-}
 
-renderFinal();
+Actor.all[counter-1].getAnswer();
+renderImages();
