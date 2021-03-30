@@ -11,7 +11,8 @@ const shows = ['The Last Blockbuster',
     'Black Mirror',
     'Golden Girls',
     'Cobra Kai',
-    'Stranger Things'
+    'Stranger Things',
+    'Peaky Blinders'
 ];
 
 const actors = ['Bill Hader',
@@ -67,6 +68,11 @@ Actor.prototype.getAnswer = function () {
 
     shuffle(temp);
 
+    optionElem = document.createElement('option');
+    optionElem.value = 'Name';
+    optionElem.textContent = 'Name';
+    actorNamesElem.appendChild(optionElem);
+
     for (let answers of temp) {
         optionElem = document.createElement('option');
         optionElem.value = answers;
@@ -86,56 +92,58 @@ Actor.prototype.getAnswer = function () {
 
     shuffle(temp);
 
+    optionElem = document.createElement('option');
+    optionElem.value = 'Show';
+    optionElem.textContent = 'Show';
+    showNamesElem.appendChild(optionElem);
+
     for (let answers of temp) {
         optionElem = document.createElement('option');
         optionElem.value = answers;
         optionElem.textContent = answers;
         showNamesElem.appendChild(optionElem);
     }
-
-    console.log(temp);
-
 }
-// TODO: Add scores to local storage
+
 function setScore() {
     let stringifiedScores = JSON.stringify(score);
     localStorage.setItem('scores', stringifiedScores);
 }
-// function getScore() {
-//     let finalScore = localStorage.getItem('scores');
-//     if (score !== null) {
-//         let parsedScore = JSON.parse(finalScore);
-//         console.log(parsedScore);
-//     }
-// }
-// TODO: add an event listener to submit
+
 const handleAnswer = function (event) {
     event.preventDefault();
     counter += 1;
+
     let userAns = event.target.actor.value;
+
+    console.log('usrAns = ', event.target.actor.value);
     for (let actor of Actor.all) {
         if (userAns === actor.name) {
             score += 1;
+            break;
         }
     }
+
     userAns = event.target.show.value;
     for (let show of Actor.all) {
         if (userAns === show.show) {
             score += 1;
+            break;
         }
-    }
+    }    
     event.target.actor.innerHTML = "";
     event.target.show.innerHTML = "";
 
-
+    console.log(score);
     if (counter === 10) {
         setScore();
         formElem.removeEventListener('submit', handleAnswer);
         window.location.href = 'scorepage.html'
     } else {
-        Actor.all[counter].getAnswer()
+        Actor.all[counter].getAnswer();
         imgElem.src = Actor.all[counter].path;
     }
+
 }
 
 // TODO: create handler for submit
