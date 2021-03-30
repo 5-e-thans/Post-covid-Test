@@ -4,12 +4,10 @@
 
 @keyframes slideshow{
     25% {
-        background-image: url('../imgs/witcher.jpeg');
-        background-repeat: no-repeat;
-        object-fit: fill;
+        background-image: url('../imgs/Witcher.jpg');  
     }
-    50% {background-image: url('../imgs/MBB_StrangerThings_2000x1300.jpeg'); 
-
+    50% {
+        background-image: url('../imgs/MBB StrangerThings.jpg');   
     }
     75% {
         background-image: url('../imgs/Queens Gambit.jpg');
@@ -17,14 +15,16 @@
 }
 
 body {
-    background-image: url('../imgs/Phoebe_Dynevor_Bridgerton_2038x1865.jpeg');
+    background-image: url('../imgs/Phoebe Dynevor Bridgerton.jpeg');
     animation: 12s ease-in-out infinite slideshow;
+    background-size: cover; 
+
 }
 
 main {
     width: 2000px;
     height: 2000px;
-    background-color: rgba(176, 196, 222, 0.601);
+    background-color: rgba(83, 104, 132, 0.601);
 }
 
 section {
