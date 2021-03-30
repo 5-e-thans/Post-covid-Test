@@ -96,12 +96,21 @@ Actor.prototype.getAnswer = function () {
     console.log(temp);
 
 }
-
+// TODO: Add scores to local storage
+function setScore() {
+    let stringifiedScores = JSON.stringify(score);
+    localStorage.setItem('scores', stringifiedScores);
+}
+// function getScore() {
+//     let finalScore = localStorage.getItem('scores');
+//     if (score !== null) {
+//         let parsedScore = JSON.parse(finalScore);
+//         console.log(parsedScore);
+//     }
+// }
 // TODO: add an event listener to submit
 const handleAnswer = function (event) {
     event.preventDefault();
-    event.target.actor.innerHTML = "";
-    event.target.show.innerHTML = "";
     counter += 1;
     let userAns = event.target.actor.value;
     for (let actor of Actor.all) {
@@ -115,10 +124,12 @@ const handleAnswer = function (event) {
             score += 1;
         }
     }
-
+    event.target.actor.innerHTML = "";
+    event.target.show.innerHTML = "";
 
 
     if (counter === 10) {
+        setScore();
         formElem.removeEventListener('submit', handleAnswer);
         window.location.href = 'scorepage.html'
     } else {
