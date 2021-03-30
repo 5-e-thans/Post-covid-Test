@@ -12,17 +12,36 @@ const shows = ['The Last Blockbuster',
     'Golden Girls',
     'Cobra Kai',
     'Stranger Things',
-    'Peaky Blinders'
+    'Peaky Blinders',
+    'Ozark',
+    'Shameless',
+    'Alone',
+    'Good Girls',
+    'Bloodline',
+    'Dead to Me',
+    'Godless',
+    'Jericho'
+
 ];
 
 const actors = ['Bill Hader',
     'Jack Black',
     'Catherine O\'Hara',
-    'Abraham Lincoln',
+    'Stanley Tucci',
     'Billy Bob Thorton',
     'Bruce Willis',
     'Heath Ledger',
-    'Marisa Tomei'
+    'Marisa Tomei',
+    'Gaten Matarazzo',
+    'Úrsula Corberó',
+    'Joey King',
+    'Jason Bateman',
+    'Joey Batey',
+    'Anya Chalotra',
+    'Harry Melling',
+    'Mindy Kaling',
+    'Jonas Gerzabek'
+
 ];
 
 //constructor for all the objects
@@ -47,7 +66,7 @@ new Actor('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levy-schitts-creek.jpg')
 new Actor('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
 new Actor('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
 
-// TODO: add images to the screen
+// adds images to the screen
 function renderImages() {
     imgElem.src = Actor.all[0].path;
 }
@@ -146,7 +165,7 @@ const handleAnswer = function (event) {
 
 }
 
-// TODO: create handler for submit
+//Handler for submit
 const formElem = document.getElementById('formElem');
 
 formElem.addEventListener('submit', handleAnswer);
