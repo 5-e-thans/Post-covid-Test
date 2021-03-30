@@ -19,8 +19,9 @@ The goal is to create a website that tests the user's knowledge of films and sho
 1. Add a hard mode of five additional questions as an option after the first round.
 2. Blurred picture for hard mode.
 3. A timer added to the test.
-4. Try again button.
+4. Try again button. DONE!
 5. About us.
+6. CSS styling with transforms and animations.
 
 ## User Stories
 

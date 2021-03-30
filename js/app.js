@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
 

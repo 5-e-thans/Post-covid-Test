@@ -1,7 +1,35 @@
-body {
-    background: antiquewhite;
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');        
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
+@keyframes slideshow{
+    0% {
+        background-image: url('../imgs/Witcher.jpg');
+    }
+    25% {background-image: url('../imgs/MBB StrangerThings.jpg'); 
+
+    }
+    50% {
+        background-image: url('../imgs/Queens Gambit.jpg');
+    }
+
+    75% {
+        background-image: url('../imgs/eugene-levy-schitts-creek.jpg');
+    }
 }
+
+body {
+    background-image: url('../imgs/eugene-levy-schitts-creek.jpg');
+    animation: 10s ease-in-out infinite slideshow;
+}
+
+main {
+    width: 2000px;
+    height: 2000px;
+    background-color: lightsteelblue;
+    opacity: 0.5;
+}
+
 section {
     position: absolute;
     top: 40%;
@@ -9,8 +37,11 @@ section {
     margin: 0 auto;
     width: 50%;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
+    font-family: 'Cutive Mono', monospace;
+    opacity: 1;
 }
+
 #answerBox {
     z-index: 10;
     top: 15%;
@@ -23,13 +54,22 @@ section {
 h1 {
     font-size: 50px;
     margin-bottom: 15px;
+    font-family: 'Paytone One', sans-serif;
+    text-decoration: underline;
+    font-weight: bolder;
+    
 }
+
 button {
     margin-top: 25px;
     height: 60px;
     width: 100px;
     border-radius: 10%;
     font-size: 20px;
+}
+
+button:hover {
+
 }
 a {
     text-decoration: none;
@@ -40,3 +80,4 @@ img {
     height: 100%;
     z-index: -10;
 }
+
