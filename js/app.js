@@ -3,13 +3,13 @@ const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
 
 let score = 0;
-let counter = 1;
+let counter = 0;
 
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
     'The Crown',
     'Black Mirror',
-    'Peaky Blinders',
+    'Golden Girls',
     'Cobra Kai',
     'Stranger Things'
 ];
@@ -93,7 +93,7 @@ Actor.prototype.getAnswer = function () {
         showNamesElem.appendChild(optionElem);
     }
 
-console.log(temp);
+    console.log(temp);
 
 }
 
@@ -116,12 +116,14 @@ const handleAnswer = function (event) {
         }
     }
 
-    Actor.all[counter].getAnswer();
-    imgElem.src = Actor.all[counter].path;
-    
+
+
     if (counter === 10) {
         formElem.removeEventListener('submit', handleAnswer);
         window.location.href = 'scorepage.html'
+    } else {
+        Actor.all[counter].getAnswer()
+        imgElem.src = Actor.all[counter].path;
     }
 }
 
@@ -141,5 +143,5 @@ function shuffle(array) {
 }
 
 
-Actor.all[counter-1].getAnswer();
+Actor.all[counter].getAnswer();
 renderImages();
