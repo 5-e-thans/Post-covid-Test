@@ -5,6 +5,8 @@
 @keyframes slideshow{
     25% {
         background-image: url('../imgs/witcher.jpeg');
+        background-repeat: no-repeat;
+        object-fit: fill;
     }
     50% {background-image: url('../imgs/MBB_StrangerThings_2000x1300.jpeg'); 
 
