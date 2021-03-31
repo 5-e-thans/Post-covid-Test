@@ -4,8 +4,8 @@ const finalResultsElem = document.getElementById('finalScore');
 
 
 let score = 0;
-// can refactor to Actors.all.length
 let counter = 0;
+let isHardmode = false;
 
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
@@ -183,10 +183,10 @@ const handleAnswer = function (event) {
     } else {
         Actor.all[counter].getAnswer();
         imgElem.src = Actor.all[counter].path;
-        if (isHardmode===true){
-            imgElem.class = "hard";
-        }
         currentImage = Actor.all[counter];
+        if (isHardmode === true) {
+            imgElem.className = "hard";
+        }
     }
 
 }
@@ -203,12 +203,16 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
+
 function getDifficulty() {
-    if (localStorage!==null){
-       let retrievedDifficulty= localStorage.getItem("difficulty");
-        let parsedDifficulty=JSON.parse(retrievedDifficulty);
+    if (localStorage !== null) {
+        let retrievedDifficulty = localStorage.getItem("difficulty");
+        let parsedDifficulty = JSON.parse(retrievedDifficulty);
+
+        isHardmode = parsedDifficulty;
     }
 }
 
 Actor.all[counter].getAnswer();
+getDifficulty();
 imgElem.src = Actor.all[0].path;
