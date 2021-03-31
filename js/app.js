@@ -2,6 +2,7 @@
 const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
 
+
 let score = 0;
 // can refactor to Actors.all.length
 let counter = 0;
@@ -60,6 +61,7 @@ function Actor(name, show, path) {
 // holds all instances of the Person object
 Actor.all = [];
 
+
 new Actor('Cillian Murphy', 'Peaky Blinders', 'imgs/CM Peaky Blinders.jpg');
 new Actor('Regé-Jean Page', 'Bridgerton', 'imgs/Regé-Jean Page Bridgerton.jpg');
 new Actor('Taylor Schilling', 'Orange is the New Black', 'imgs/OITNB Taylor Schilling.jpg');
@@ -71,10 +73,8 @@ new Actor('Eugene Levy', "Schitt's Creek", 'imgs/eugene-levy-schitts-creek.jpg')
 new Actor('William Zabika', 'Cobra Kai', 'imgs/Cobra.jpg');
 new Actor('Phoebe Dynevor', 'Bridgerton', 'imgs/Phoebe Dynevor Bridgerton.jpeg');
 
-// adds images to the screen
-function renderImages() {
-    imgElem.src = Actor.all[0].path;
-}
+let currentImage = Actor.all[0];
+console.log(currentImage);
 
 // creates the shows and actors that are given as answer choices
 Actor.prototype.getAnswer = function () {
@@ -84,15 +84,10 @@ Actor.prototype.getAnswer = function () {
     let optionElem;
 
     //Start 'actors' part of the function//
-   
+
     //Selects which actors will be shown as options
     shuffle(actors);
-    // for (let i = 0; i < 3; i++) {
-    //     if (this.name !== actors[i]) {
-    //         temp.push(actors[i]);
-    //     }
-    // }
-    
+
     let nameCounter = 0;
     let nameIndex = 0;
     while (nameCounter < 3 && nameIndex < actors.length) {
@@ -165,20 +160,18 @@ const handleAnswer = function (event) {
     let userAns = event.target.actor.value;
 
     console.log('usrAns = ', event.target.actor.value);
-    for (let actor of Actor.all) {
-        if (userAns === actor.name) {
-            score += 1;
-            break;
-        }
+
+    if (userAns === currentImage.name) {
+        score += 1;
     }
 
+
     userAns = event.target.show.value;
-    for (let show of Actor.all) {
-        if (userAns === show.show) {
-            score += 1;
-            break;
-        }
+
+    if (userAns === currentImage.show) {
+        score += 1;
     }
+
     event.target.actor.innerHTML = "";
     event.target.show.innerHTML = "";
 
@@ -190,6 +183,7 @@ const handleAnswer = function (event) {
     } else {
         Actor.all[counter].getAnswer();
         imgElem.src = Actor.all[counter].path;
+        currentImage = Actor.all[counter];
     }
 
 }
@@ -209,4 +203,4 @@ function shuffle(array) {
 
 
 Actor.all[counter].getAnswer();
-renderImages();
+imgElem.src = Actor.all[0].path;
