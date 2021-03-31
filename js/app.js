@@ -26,8 +26,10 @@ const shows = ['The Last Blockbuster',
     'Queen\'s Gambit',
     'Orange is the New Black',
     'The Witcher',
-    'Tiger King'
-
+    'Tiger King',
+    "Schitt's Creek",
+    "Outlander",
+    'Riverdale'
 ];
 
 const actors = ['Bill Hader',
@@ -46,8 +48,17 @@ const actors = ['Bill Hader',
     'Anya Chalotra',
     'Harry Melling',
     'Mindy Kaling',
-    'Jonas Gerzabek'
-
+    'Jonas Gerzabek',
+    'Cillian Murphy',
+    'Regé-Jean Page',
+    'Taylor Schilling',
+    'Henry Cavill',
+    'Joe Exotic',
+    'Anya Taylor-Joy',
+    'Millie Bobby Brown',
+    'Eugene Levy',
+    'William Zabika',
+    'Phoebe Dynevor'
 ];
 
 //constructor for all the objects
@@ -139,7 +150,7 @@ Actor.prototype.getAnswer = function () {
     optionElem.textContent = 'Show';
     showNamesElem.appendChild(optionElem);
 
-    for (let answers of temp) {
+    for (let answers of temp) { 
         optionElem = document.createElement('option');
         optionElem.value = answers;
         optionElem.textContent = answers;
