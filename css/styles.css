@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond|Paytone+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');        
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
-@keyframes slideshow{
+@keyframes slideshow {
     25% {
-        background-image: url('../imgs/Witcher.jpg');  
+        background-image: url('../imgs/Witcher.jpg');
     }
+
     50% {
-        background-image: url('../imgs/MBB StrangerThings.jpg');   
+        background-image: url('../imgs/MBB StrangerThings.jpg');
     }
+
     75% {
         background-image: url('../imgs/Queens Gambit.jpg');
     }
@@ -17,72 +19,65 @@
 body {
     background-image: url('../imgs/Phoebe Dynevor Bridgerton.jpeg');
     animation: 12s ease-in-out infinite slideshow;
-    background-size: cover; 
-
+    background-size: contain;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
 main {
     width: 2000px;
     height: 2000px;
-    background-color: rgba(83, 104, 132, 0.601);
+    background: rgba(83, 104, 132, 0.601);
 }
 
 section {
     position: absolute;
     top: 40%;
     left: 25%;
-    margin: 0 auto;
     width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
     text-align: center;
-    font-size: 22px;
-    font-weight: bolder;
-    font-family: 'Cutive Mono', monospace;
-    opacity: 1;
-    background-color: rgba(176, 196, 222, 0.512);
+    font: italic 22px 'Cutive Mono', monospace;
+    background: rgb(255, 255, 255, .3);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
 
 }
 
 #answerBox {
+    width: fit-content;
+    height: 33px;
     z-index: 10;
     top: 15%;
     left: 5%;
-    width: fit-content;
+    border-radius: 50%;
     padding: 1rem;
-    height: 33px;
     background: rgba(245, 245, 245, 0.378);
 }
 
 h1 {
-    font-size: 50px;
-    margin-bottom: 25px;
-    font-family: 'Paytone One', sans-serif;
+    margin: 0 0 25px 0;
+    font: 50px 'Paytone One', sans-serif;
     text-decoration: underline;
-    font-weight: bolder;
     color: rgb(37, 53, 91);
-    
 }
 
 button {
-    margin-top: 25px;
     height: 60px;
     width: 100px;
+    margin: 25px 0 0 0;
     border-radius: 10%;
-    font-size: 20px;
-    font-family: 'Paytone One', sans-serif;
+    font: 20px 'Paytone One', sans-serif;
     margin-bottom: 12px;
-    
+    transition: all ease 350ms;
 }
 
 button:hover {
     background-color: green;
-    transition: 450ms ease-in;
-
 }
 
 a {
     text-decoration: none;
     color: black;
 }
-
-
