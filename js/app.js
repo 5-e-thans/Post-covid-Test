@@ -20,7 +20,11 @@ const shows = ['The Last Blockbuster',
     'Bloodline',
     'Dead to Me',
     'Godless',
-    'Jericho'
+    'Jericho',
+    'Bridgerton',
+    'Orange is the New Black',
+    'The Witcher',
+    'Tiger Kind'
 
 ];
 
@@ -80,7 +84,12 @@ Actor.prototype.getAnswer = function () {
     shuffle(actors);
 
     for (let i = 0; i < 3; i++) {
+        if (this.name !== actors[i]){
         temp.push(actors[i]);
+        }
+        else {
+            temp.push[i+1]
+        }
     }
 
     temp.push(this.name);
