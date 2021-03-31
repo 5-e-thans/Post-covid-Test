@@ -3,6 +3,7 @@ const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
 
 let score = 0;
+// can refactor to Actors.all.length
 let counter = 0;
 
 const shows = ['The Last Blockbuster',
@@ -21,10 +22,10 @@ const shows = ['The Last Blockbuster',
     'Dead to Me',
     'Godless',
     'Jericho',
-    'Bridgerton',
+    'Queen\'s Gambit',
     'Orange is the New Black',
     'The Witcher',
-    'Tiger Kind'
+    'Tiger King'
 
 ];
 
@@ -75,27 +76,37 @@ function renderImages() {
     imgElem.src = Actor.all[0].path;
 }
 
+// creates the shows and actors that are given as answer choices
 Actor.prototype.getAnswer = function () {
     const actorNamesElem = document.getElementById('actorNames');
     const showNamesElem = document.getElementById('showNames');
     let temp = [];
     let optionElem;
 
+    //Start 'actors' part of the function//
+   
+    //Selects which actors will be shown as options
     shuffle(actors);
-
-    for (let i = 0; i < 3; i++) {
-        if (this.name !== actors[i]){
-        temp.push(actors[i]);
+    // for (let i = 0; i < 3; i++) {
+    //     if (this.name !== actors[i]) {
+    //         temp.push(actors[i]);
+    //     }
+    // }
+    
+    let nameCounter = 0;
+    let nameIndex = 0;
+    while (nameCounter < 3 && nameIndex < actors.length) {
+        if (this.name !== actors[nameIndex]) {
+            temp.push(actors[nameIndex])
+            nameCounter += 1;
         }
-        else {
-            temp.push[i+1]
-        }
+        nameIndex += 1;
     }
 
     temp.push(this.name);
-
     shuffle(temp);
 
+    //This allows them to be a part of the dropdown
     optionElem = document.createElement('option');
     optionElem.value = 'Name';
     optionElem.textContent = 'Name';
@@ -107,13 +118,21 @@ Actor.prototype.getAnswer = function () {
         optionElem.textContent = answers;
         actorNamesElem.appendChild(optionElem);
     }
+    //End 'actors' part of the fuction//
 
+    // 'Show' part of the function
     temp = [];
 
     shuffle(shows);
 
-    for (let j = 0; j < 3; j++) {
-        temp.push(shows[j]);
+    let showCounter = 0;
+    let showIndex = 0;
+    while (showCounter < 3 && showIndex < shows.length) {
+        if (this.show !== shows[showIndex]) {
+            temp.push(shows[showIndex])
+            showCounter += 1;
+        }
+        showIndex += 1;
     }
 
     temp.push(this.show);
@@ -138,6 +157,7 @@ function setScore() {
     localStorage.setItem('scores', stringifiedScores);
 }
 
+// Event Hander
 const handleAnswer = function (event) {
     event.preventDefault();
     counter += 1;
@@ -158,7 +178,7 @@ const handleAnswer = function (event) {
             score += 1;
             break;
         }
-    }    
+    }
     event.target.actor.innerHTML = "";
     event.target.show.innerHTML = "";
 
@@ -173,10 +193,8 @@ const handleAnswer = function (event) {
     }
 
 }
-
 //Handler for submit
 const formElem = document.getElementById('formElem');
-
 formElem.addEventListener('submit', handleAnswer);
 
 //This will be the shuffle function used to randomize inncorrect answers.
