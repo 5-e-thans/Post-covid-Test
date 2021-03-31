@@ -19,7 +19,7 @@
 body {
     background-image: url('../imgs/Phoebe Dynevor Bridgerton.jpeg');
     animation: 12s ease-in-out infinite slideshow;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
 }
