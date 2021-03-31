@@ -183,6 +183,9 @@ const handleAnswer = function (event) {
     } else {
         Actor.all[counter].getAnswer();
         imgElem.src = Actor.all[counter].path;
+        if (isHardmode===true){
+            imgElem.class = "hard";
+        }
         currentImage = Actor.all[counter];
     }
 
@@ -200,7 +203,12 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
-
+function getDifficulty() {
+    if (localStorage!==null){
+       let retrievedDifficulty= localStorage.getItem("difficulty");
+        let parsedDifficulty=JSON.parse(retrievedDifficulty);
+    }
+}
 
 Actor.all[counter].getAnswer();
 imgElem.src = Actor.all[0].path;
