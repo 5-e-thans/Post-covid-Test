@@ -1,12 +1,14 @@
-h1{
+h1 {
     text-align: center;
     color: darkslategrey;
 }
+
 h3 {
     margin-top: 2px;
     color: darkslategrey;
 }
-.about-div{
+
+.about-div {
     height: 250px;
     display: flex;
     width: 80vw;
@@ -14,13 +16,18 @@ h3 {
     margin: auto;
     gap: 25px;
 }
+
 .img {
     height: 150px;
+    width: 150px;
 }
-p{
-color: darkslategrey;
-font-style: italic;
+
+p {
+    color: darkslategrey;
+    font-style: italic;
+    font-size: 17px;
 }
-body{
+
+body {
     background-color: bisque;
 }
