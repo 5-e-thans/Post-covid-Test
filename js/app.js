@@ -1,6 +1,7 @@
 'use strict';
 const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
+const hardModeCheckBox = document.querySelector('input[name=hard]');
 
 
 let score = 0;
@@ -212,6 +213,15 @@ function getDifficulty() {
         isHardmode = parsedDifficulty;
     }
 }
+
+
+hardModeCheckBox.addEventListener('change', function() {
+    if (this.checked) {
+        imgElem.setAttribute("class", "hard") = "hard";
+    } else {
+        imgElem.setAttribute("class", "");
+    }
+});
 
 Actor.all[counter].getAnswer();
 getDifficulty();
