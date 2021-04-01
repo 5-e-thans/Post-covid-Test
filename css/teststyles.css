@@ -2,13 +2,13 @@ body {
     background: transparent;
 }
 
-img {
+img#actor-img {
     width: 100%;
     height: 100%;
     transition: all ease 350ms;
 }
 
-img.hardMode {
+img.hard{
     filter: blur(2rem);
 }
 
