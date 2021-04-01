@@ -1,15 +1,3 @@
-@keyframes fade {
-    25% {
-        opacity: .7;
-    }
-    75%{
-        opacity: 0;
-    }
-    100% {
-        display: hidden;
-    }
-}
-
 body {
     background: transparent;
 }
@@ -17,12 +5,10 @@ body {
 img {
     width: 100%;
     height: 100%;
-    animation: fade 3s linear;
-    animation-iteration-count: 1;
-    /* transition: all ease 350ms; */
+    transition: all ease 350ms;
 }
 
-img:hover {
+img.hardMode {
     filter: blur(2rem);
 }
 
