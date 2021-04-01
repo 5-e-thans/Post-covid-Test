@@ -71,6 +71,7 @@ button {
     font: 20px 'Paytone One', sans-serif;
     margin-bottom: 12px;
     transition: all ease 350ms;
+    justify-content: center;
 }
 
 button:hover {
@@ -80,4 +81,8 @@ button:hover {
 a {
     text-decoration: none;
     color: black;
+}
+
+#hardmode { 
+    
 }
