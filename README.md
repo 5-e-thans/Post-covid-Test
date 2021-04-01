@@ -59,3 +59,5 @@ The goal is to create a website that tests the user's knowledge of films and sho
 - We had a lot of fun making this and we hope that you enjoy it!
 
 The animation in particular took a while to get just right and making sure that the user is presented with randomized answer options without any duplicates to the right answer was also tricky. 
+
+Another interesting thing was that even on a relativly simple program like this one it was remarkable how much needed to change as we refined out concept of how it needed to function and run. Our initial concepts of what was needed under the hood changed a couple of times as we realized that the parts would not all work together the way we had originally coded them.
