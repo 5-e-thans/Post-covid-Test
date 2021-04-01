@@ -5,11 +5,12 @@ body {
 img#actor-img {
     width: 100%;
     height: 100%;
+    filter: blur(2rem);
     transition: all ease 350ms;
 }
 
-img.hard{
-    filter: blur(2rem);
+img#actor-img.easy{
+    filter: blur(0);
 }
 
 #answerBox {
