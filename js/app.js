@@ -203,7 +203,7 @@ function shuffle(array) {
 
 hardModeCheckBox.addEventListener('change', function() {
     if (this.checked) {
-        imgElem.setAttribute("class", "hard") = "hard";
+        imgElem.setAttribute("class", "easy");
     } else {
         imgElem.setAttribute("class", "");
     }
