@@ -1,7 +1,7 @@
 'use strict';
 const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
-const hardModeCheckBox = document.querySelector('input[name=hard]');
+const hardModeCheckBox = document.querySelector('input[name=easy]');
 
 
 let score = 0;
