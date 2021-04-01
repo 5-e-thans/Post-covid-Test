@@ -1,11 +1,11 @@
 'use strict';
 const imgElem = document.getElementById('actor-img');
 const finalResultsElem = document.getElementById('finalScore');
+const hardModeCheckBox = document.querySelector('input[name=easy]');
 
 
 let score = 0;
 let counter = 0;
-let isHardmode = false;
 
 const shows = ['The Last Blockbuster',
     'Hell on Wheels',
@@ -195,9 +195,6 @@ const handleAnswer = function (event) {
         Actor.all[counter].getAnswer();
         imgElem.src = Actor.all[counter].path;
         currentImage = Actor.all[counter];
-        if (isHardmode === true) {
-            imgElem.className = "hard";
-        }
     }
 
 }
@@ -215,15 +212,13 @@ function shuffle(array) {
     }
 }
 
-function getDifficulty() {
-    if (localStorage !== null) {
-        let retrievedDifficulty = localStorage.getItem("difficulty");
-        let parsedDifficulty = JSON.parse(retrievedDifficulty);
-
-        isHardmode = parsedDifficulty;
+hardModeCheckBox.addEventListener('change', function() {
+    if (this.checked) {
+        imgElem.setAttribute("class", "easy");
+    } else {
+        imgElem.setAttribute("class", "");
     }
-}
+});
 
 Actor.all[counter].getAnswer();
-getDifficulty();
 imgElem.src = Actor.all[0].path;

@@ -1,7 +1,16 @@
-img {
+body {
+    background: transparent;
+}
+
+img#actor-img {
     width: 100%;
     height: 100%;
-    /* z-index: -10; */
+    filter: blur(2rem);
+    transition: all ease 350ms;
+}
+
+img#actor-img.easy{
+    filter: blur(0);
 }
 
 #answerBox {
@@ -13,6 +22,10 @@ img {
     padding-top: 20px;
     height: 33px;
     background: rgba(245, 245, 245, 0.378);
+}
+
+label {
+    font: italic 16px 'Cutive Mono', monospace;
 }
 
 section {
@@ -41,4 +54,3 @@ section {
     transition: 250ms;
     color: white;
 }
-
