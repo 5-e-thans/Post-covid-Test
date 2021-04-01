@@ -8,7 +8,7 @@ Roman Ayalew, Kyle Hoac, Skyler Johnson, Cullen Sharp, Tim Viccari
 
 ## Problem Domain
 
-As a user, I want to quiz my knowledge on Netflix shows.
+With our Post-Covid Test we will allow users to determine if they are up to date with popular Netflix shows and actors and ready for a good old fashioned chin wag around the water cooler about it when the time eventually comes.
 
 ### MVP
 
@@ -17,11 +17,11 @@ The goal is to create a website that tests the user's knowledge of films and sho
 ### Stretch
 
 1. Add a hard mode of five additional questions as an option after the first round.
-2. Blurred picture for hard mode.
+2. Blurred picture for hard mode.DONE! (kinda)
 3. A timer added to the test.
 4. Try again button. DONE!
-5. About us.
-6. CSS styling with transforms and animations.
+5. About us. DONE!
+6. CSS styling with transforms and animations. DONE!
 
 ## User Stories
 
