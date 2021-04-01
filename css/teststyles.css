@@ -24,10 +24,8 @@ img#actor-img.easy{
     background: rgba(245, 245, 245, 0.378);
 }
 
-#formElem {
-    /* display: flex; */
-    justify-content: center;
-    align-content: space-around;
+label {
+    font: italic 16px 'Cutive Mono', monospace;
 }
 
 section {
