@@ -16,7 +16,7 @@
     }
 }
 
-body {
+.slide-show {
     background-image: url('../imgs/Phoebe Dynevor Bridgerton.jpeg');
     animation: 12s ease-in-out infinite slideshow;
     background-size: cover;
@@ -24,6 +24,16 @@ body {
     overflow: hidden;
 }
 
+#nav {
+    height: 10vh;
+    background-color: black;
+
+}
+#nav a {
+    color: blanchedalmond;
+    font-size: 1.4em;
+
+}
 main {
     width: 2000px;
     height: 2000px;

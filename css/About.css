@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+    color: darkslategrey;
+}
+h3 {
+    margin-top: 2px;
+    color: darkslategrey;
+}
+.about-div{
+    height: 250px;
+    display: flex;
+    width: 80vw;
+    justify-content: center;
+    margin: auto;
+    gap: 25px;
+}
+.img {
+    height: 150px;
+}
+p{
+color: darkslategrey;
+font-style: italic;
+}
+body{
+    background-color: bisque;
+}
