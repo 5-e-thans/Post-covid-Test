@@ -52,8 +52,10 @@ The goal is to create a website that tests the user's knowledge of films and sho
 
 ## Tech used
 
--
+- HTML, CSS, Javascript
 
 ## Notes and reflections
 
--
+- We had a lot of fun making this and we hope that you enjoy it!
+
+The animation in particular took a while to get just right and making sure that the user is presented with randomized answer options without any duplicates to the right answer was also tricky. 
